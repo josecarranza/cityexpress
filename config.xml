@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.cityexpress.app" version="1.10.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CityExpress - APP</name>
+    <description>
+        CityExpress APP
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+      Diseño Web El Salvador:  Web Informática
+    </author>
+
+    <content src="index.html" />
+
+    <plugin name="https://github.com/apache/cordova-plugin-geolocation.git" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+
+    <plugin name="cordova-plugin-network-information" spec="0.2.7" />
+    <plugin name="cordova-plugin-file-transfer"  />
+    <plugin name="cordova-plugin-inappbrowser" source="npm"/>
+
+    <plugin name="org.apache.cordova.camera"  />
+    <plugin name="https://github.com/wymsee/cordova-imagePicker.git" />
+
+        <plugin name="https://github.com/phonegap-build/PushPlugin" />
+    <plugin name="org.apache.cordova.splashscreen" />
+    <icon src="www/res/icons/icon.png" />
+    <splash src="www/res/screens/screen.png" />
+    <icon src="www/res/icons/android/icon-36-ldpi.png" platform="android" qualifier="ldpi" />
+    <icon src="www/res/icons/android/icon-48-mdpi.png" platform="android" qualifier="mdpi" />
+    <icon src="www/res/icons/android/icon-72-hdpi.png" platform="android" qualifier="hdpi" />
+    <icon src="www/res/icons/android/icon-96-xhdpi.png" platform="android" qualifier="xhdpi" />
+    <splash src="www/res/screens/android/screen-landscape-ldpi.png" platform="android" qualifier="land-ldpi" />
+    <splash src="www/res/screens/android/screen-landscape-mdpi.png" platform="android" qualifier="land-mdpi" />
+    <splash src="www/res/screens/android/screen-landscape-hdpi.png" platform="android" qualifier="land-hdpi" />
+    <splash src="www/res/screens/android/screen-landscape-xhdpi.png" platform="android" qualifier="land-xhdpi" />
+    <splash src="www/res/screens/android/screen-portrait-ldpi.png" platform="android" qualifier="port-ldpi" />
+    <splash src="www/res/screens/android/screen-portrait-mdpi.png" platform="android" qualifier="port-mdpi" />
+    <splash src="www/res/screens/android/screen-portrait-hdpi.png" platform="android" qualifier="port-hdpi" />
+    <splash src="www/res/screens/android/screen-portrait-xhdpi.png" platform="android" qualifier="port-xhdpi" />
+
+
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="SplashScreen" value="screen"/>
+   <!-- <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="9000" />-->
+
+    <platform name="android">
+          <allow-intent href="market:*" />
+
+
+    </platform>
+
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+
+
+
+</widget>
+
+<!---data>-->
