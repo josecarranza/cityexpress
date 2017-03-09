@@ -65,7 +65,7 @@ var app = {
 
   function viewOrder(orden){
     setParameter("vieworderId",orden);
-    location.replace("detalle_orden.html");
+    window.location = "detalle_orden.html";
   }
 
 /* FUNCIONES */

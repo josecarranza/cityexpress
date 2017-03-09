@@ -18,8 +18,8 @@ var app = {
     // Phonegap is now ready...
     onDeviceReady: function() {
         console.log("device ready, start making you custom calls!");
-        orden = getParameter("vieworderId");
-        alert(orden);
+
+
         $('#logoutButton').click(function(){
         doLogout();
       });
@@ -33,24 +33,67 @@ var app = {
   $(document).ready(function(){
 
   var id_usuario = localStorage.getItem("id_usuario");
-
+  var orden = getParameter("vieworderId");
   /* se obtienen las ordenes del usuario */
-/*
+  var es_mandado = 0;
   $.ajax({
       type: 'POST',
-      url: webservices + 'getDetalleOrden',
-      data: {id: id_usuario},
+      url: webservices + 'getDatosOrden',
+      data: {id: orden},
       dataType: 'json',
       success: function (data) {
 
         for (n in data){
-        //  console.log(  + " - " + data[n].direccion);
-          $('#listOrdenes').append("<div class='row'><div id='detalleItem'  class='col-xs-2' onclick='viewOrder("+ data[n].id_orden +")'><h4>" + data[n].id_orden + "</h4></div><div id='detalleItem'  class='col-xs-10'><h4>" + data[n].direccion + "</h4></div></div>");
+          $('#divNombreCliente').text(data[n].nombres + " " + data[n].apellidos);
+          $('#divDireccionPickup').text("No definido");
+          $('#divDireccionEntrega').text(data[n].direccion);
+          $('#divMontoaRecibir').text(data[n].total);
+
+          es_mandado = data[n].es_mandado;
+
+          // se realiza dentro del for debido a que se necesita que el hilo sea el mismo y no disparar 2 sentencias ajax
+
+          if (es_mandado == "1"){
+            // realiza consulta de mandado.
+
+            $.ajax({
+                type: 'POST',
+                url: webservices + 'getMandadosOrden',
+                data: {id: orden},
+                dataType: 'json',
+                success: function (data) {
+
+                  $('#divListMandados').append("<div class='row'>")
+                  $('#divListMandados').append("<div class='col-xs-4'>Envía</div>" );
+                  $('#divListMandados').append("<div class='col-xs-4'>Recibe</div>" );
+                  $('#divListMandados').append("<div class='col-xs-4'>Estado</div>" );
+                  $('#divListMandados').append("</div>")
+
+                  for (n in data){
+                    $('#divListMandados').append("<div class='row'  onclick='verMandado("+data[n].id_mandado+")'>");
+                    $('#divListMandados').append("<div id='pk_nombre' class='col-xs-4'>" + data[n].pk_nombre + "</div>" );
+                    $('#divListMandados').append("<div id='en_nombre' class='col-xs-4'>" + data[n].en_nombre + "</div>" );
+                    $('#divListMandados').append("<div id='detalle' class='col-xs-4'>" + data[n].estado + "</div>" );
+                    $('#divListMandados').append("</div>")
+
+                  }
+                }
+          });
+
+          }else{
+            // realiza consulta de productos de tienda
+            //TODO: verificar si los productos de tienda no se haran como mandados, debido a que no tiene pickup en la base de datos.
+            console.log("entro a producto");
+
+          }
+
         }
       }
 
   });
-*/
+
+
+
 
   var $loading = $('#loadingDiv').hide();
   $(document).ajaxStart(function () {
@@ -60,3 +103,8 @@ var app = {
     });
 
   });
+
+  function verMandado(id){
+    setParameter("verMandadoId",id);
+    window.location = "detalle_mandado.html";
+  }
