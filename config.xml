@@ -17,10 +17,14 @@
     <plugin name="cordova-plugin-file-transfer"  />
     <plugin name="cordova-plugin-inappbrowser" source="npm"/>
 
-    <plugin name="org.apache.cordova.camera"  />
-    <plugin name="https://github.com/wymsee/cordova-imagePicker.git" />
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
 
-        <plugin name="https://github.com/phonegap-build/PushPlugin" />
+
+    <plugin name="org.apache.cordova.camera" />
+    <plugin name="https://github.com/wymsee/cordova-imagePicker.git" />
+    <plugin name="https://github.com/phonegap-build/PushPlugin" />
     <plugin name="org.apache.cordova.splashscreen" />
     <icon src="www/res/icons/icon.png" />
     <splash src="www/res/screens/screen.png" />

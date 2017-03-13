@@ -209,41 +209,41 @@ var app = {
         window.location = "detalle_mandado.html";
       }
 
-      function getImage() {
-         // Retrieve image file location from specified source
-         navigator.camera.getPicture(uploadPhoto, function(message) {
-          alert('get picture failed');
-       },{
-         quality: 50,destinationType: navigator.camera.DestinationType.FILE_URI, sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-       }
-               );
 
-           }
 
-     function uploadPhoto(imageURI) {
-         var options = new FileUploadOptions();
-         options.fileKey="file";
-         options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-         options.mimeType="image/jpeg";
+      $("#btnFoto").on("tap",function()  {
+           navigator.camera.getPicture(onSuccess, onFail, {
+             quality: 50,
+             destinationType: Camera.DestinationType.FILE_URI,
+             correctOrientation: true,
+             targetWidth: 450,
+             targetHeight: 254
+         });
 
-         var params = new Object();
-         params.value1 = "test";
-         params.value2 = "param";
+          function onSuccess(imageData) {
 
-         options.params = params;
-         options.chunkedMode = false;
+            document.getElementById("myimage").src = imageData;
+            get_image_size_from_URI(imageData);
+            banderaFoto=true;
 
-         var ft = new FileTransfer();
-         ft.upload(imageURI,   webservices + "api/upload.php", win, thefail, options);
-     }
+        }
 
-     function win(r) {
-         console.log("Code = " + r.responseCode);
-         console.log("Response = " + r.response);
-         console.log("Sent = " + r.bytesSent);
-         alert(r.response);
-     }
+          function onFail(message) {
 
-     function thefail(){
-       alert("Error al subir archivos");
-     }
+          }
+
+      });
+
+
+
+      function getBase64Image(imgElem) {
+      // imgElem must be on the same server otherwise a cross-origin error will be thrown "SECURITY_ERR: DOM Exception 18"
+
+          var canvas = document.createElement("canvas");
+          canvas.width = 450;
+          canvas.height = 254;
+          var ctx = canvas.getContext("2d");
+          ctx.drawImage(imgElem, 0, 0);
+          var dataURL = canvas.toDataURL("image/png");
+          return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+      }
