@@ -24,6 +24,9 @@ var app = {
         doLogout();
       });
 
+
+
+
           nombreUsuario = localStorage.getItem("nombre_usuario");
           $('#divNombre').text(nombreUsuario);
 
@@ -31,9 +34,61 @@ var app = {
 };
   /* se dispara en lugar de onDeviceReady */
   $(document).ready(function(){
+    var id_usuario = localStorage.getItem("id_usuario");
+    var orden = getParameter("vieworderId");
 
-  var id_usuario = localStorage.getItem("id_usuario");
-  var orden = getParameter("vieworderId");
+    $('#Botonera1').hide();
+    $('#Botonera2').hide();
+
+
+    $('#aceptarOrden').click(function(){
+        var confirmar = confirm("Esta seguro que desea aceptar esta orden");
+        if (confirmar){
+
+          // se invoca la llamada ajax para cambio de estado
+          $.ajax({
+              type: 'POST',
+              url: webservices + 'setEstadoOrden',
+              data: {id: orden, estado:3},
+              dataType: 'json',
+              success: function (data) {
+
+                window.location = "detalle_orden.html";
+
+
+              }
+        });
+
+
+        }
+      });
+
+      $('#finalizarOrden').click(function(){
+          var confirmar = confirm("Esta seguro que finalizar esta orden");
+          if (confirmar){
+
+            // se invoca la llamada ajax para cambio de estado
+            $.ajax({
+                type: 'POST',
+                url: webservices + 'setEstadoOrden',
+                data: {id: orden, estado:4},
+                dataType: 'json',
+                success: function (data) {
+
+                  window.location = "principal.html";
+
+
+                }
+          });
+
+
+          }
+        });
+
+
+
+
+
   /* se obtienen las ordenes del usuario */
   var es_mandado = 0;
   $.ajax({
@@ -48,10 +103,20 @@ var app = {
           $('#divDireccionPickup').text("No definido");
           $('#divDireccionEntrega').text(data[n].direccion);
           $('#divMontoaRecibir').text(data[n].total);
+          $('#divEstado').text(data[n].estado);
+
 
           es_mandado = data[n].es_mandado;
 
-          // se realiza dentro del for debido a que se necesita que el hilo sea el mismo y no disparar 2 sentencias ajax
+          /* se muestra botonera correspondiente */
+          if (data[n].id_estado == "2"){
+            $('#Botonera1').show();
+          }
+          if (data[n].id_estado == "3"){
+            $('#Botonera2').show();
+          }
+
+
 
           if (es_mandado == "1"){
             // realiza consulta de mandado.
@@ -71,19 +136,52 @@ var app = {
 
                   for (n in data){
                     $('#divListMandados').append("<div class='row'  onclick='verMandado("+data[n].id_mandado+")'>");
-                    $('#divListMandados').append("<div id='pk_nombre' class='col-xs-4'>" + data[n].pk_nombre + "</div>" );
-                    $('#divListMandados').append("<div id='en_nombre' class='col-xs-4'>" + data[n].en_nombre + "</div>" );
-                    $('#divListMandados').append("<div id='detalle' class='col-xs-4'>" + data[n].estado + "</div>" );
+                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].pk_nombre + "</div>" );
+                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].en_nombre + "</div>" );
+                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].estado + "</div>" );
                     $('#divListMandados').append("</div>")
 
                   }
+
+
                 }
           });
+
+
+
+
 
           }else{
             // realiza consulta de productos de tienda
             //TODO: verificar si los productos de tienda no se haran como mandados, debido a que no tiene pickup en la base de datos.
-            console.log("entro a producto");
+
+
+            $.ajax({
+                type: 'POST',
+                url: webservices + 'getProductosOrden',
+                data: {id: orden},
+                dataType: 'json',
+                success: function (data) {
+
+                  $('#divListMandados').append("<div class='row'>");
+                  $('#divListMandados').append("<div class='col-xs-4'>Tienda</div>" );
+                  $('#divListMandados').append("<div class='col-xs-4'>Producto</div>" );
+                  $('#divListMandados').append("<div class='col-xs-4'>Cantidad</div>" );
+                  $('#divListMandados').append("</div>")
+
+                  for (n in data){
+                    $('#divListMandados').append("<div class='row'>");
+                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].tienda + "</div>" );
+                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].nombre + "</div>" );
+                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].cantidad + "</div>" );
+                    $('#divListMandados').append("</div>")
+
+                  }
+
+
+                }
+          });
+
 
           }
 
@@ -102,9 +200,13 @@ var app = {
       $loading.hide();
     });
 
+
+
   });
 
-  function verMandado(id){
-    setParameter("verMandadoId",id);
-    window.location = "detalle_mandado.html";
-  }
+
+
+      function verMandado(id){
+        setParameter("verMandadoId",id);
+        window.location = "detalle_mandado.html";
+      }
