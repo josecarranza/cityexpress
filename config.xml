@@ -10,22 +10,20 @@
 
     <content src="index.html" />
 
-    <plugin name="https://github.com/apache/cordova-plugin-geolocation.git" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
-
-    <plugin name="cordova-plugin-network-information" spec="0.2.7" />
-    <plugin name="cordova-plugin-file-transfer"  />
-    <plugin name="cordova-plugin-inappbrowser" source="npm"/>
-
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
     </feature>
 
+    <plugin name="cordova-plugin-file-transfer" spec="1.6.2" />
+    <plugin name="cordova-plugin-inappbrowser" spec="1.7.0" />
+    <plugin name="cordova-plugin-network-information" spec="0.2.7" />
+    <plugin name="cordova-plugin-whitelist" spec="1.3.2" />
+    <plugin name="https://github.com/apache/cordova-plugin-geolocation.git" spec="2.4.3-dev" />
+    <plugin name="https://github.com/phonegap-build/PushPlugin" spec="2.5.0" />
+    <plugin name="https://github.com/wymsee/cordova-imagePicker.git" spec="1.1.1" />
+    <plugin name="org.apache.cordova.camera" spec="2.4.0" />
+    <plugin name="org.apache.cordova.splashscreen" spec="4.0.2" />
 
-    <plugin name="org.apache.cordova.camera" />
-    <plugin name="https://github.com/wymsee/cordova-imagePicker.git" />
-    <plugin name="https://github.com/phonegap-build/PushPlugin" />
-    <plugin name="org.apache.cordova.splashscreen" />
     <icon src="www/res/icons/icon.png" />
     <splash src="www/res/screens/screen.png" />
     <icon src="www/res/icons/android/icon-36-ldpi.png" platform="android" qualifier="ldpi" />
