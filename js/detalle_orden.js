@@ -210,8 +210,9 @@ var app = {
       }
 
 
+      $('#btnFoto').click(function(){
 
-      $("#btnFoto").on("tap",function()  {
+        alert("Entro a tomar foto")
            navigator.camera.getPicture(onSuccess, onFail, {
              quality: 50,
              destinationType: Camera.DestinationType.FILE_URI,
