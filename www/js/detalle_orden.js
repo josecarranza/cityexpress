@@ -43,6 +43,7 @@ var app = {
 
     $('#aceptarOrden').click(function(){
         var confirmar = confirm("Esta seguro que desea aceptar esta orden");
+
         if (confirmar){
 
           // se invoca la llamada ajax para cambio de estado
@@ -65,13 +66,15 @@ var app = {
 
       $('#finalizarOrden').click(function(){
           var confirmar = confirm("Esta seguro que finalizar esta orden");
+          var comentario = $('#comentario').val();
+        //  alert(comentario);
           if (confirmar){
 
             // se invoca la llamada ajax para cambio de estado
             $.ajax({
                 type: 'POST',
                 url: webservices + 'setEstadoOrden',
-                data: {id: orden, estado:4},
+                data: {id: orden, estado:4,comment:comentario},
                 dataType: 'json',
                 success: function (data) {
 

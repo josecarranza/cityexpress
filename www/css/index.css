@@ -184,3 +184,8 @@ a.down {
     border-bottom:solid 2px  #eaeaea;
     border-right: solid 2px #eaeaea;
     }
+
+textarea#comentario {
+width: 404px; height: 72px;
+
+}
