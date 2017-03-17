@@ -142,7 +142,7 @@ var app = {
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].pk_nombre + "</div>" );
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].en_nombre + "</div>" );
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].estado + "</div>" );
-                    $('#divListMandados').append("</div>")
+                    $('#divListMandados').append("</div><div class=\"clearfix\"></div>")
 
                   }
 
@@ -177,7 +177,7 @@ var app = {
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].tienda + "</div>" );
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].nombre + "</div>" );
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].cantidad + "</div>" );
-                    $('#divListMandados').append("</div>")
+                    $('#divListMandados').append("</div><div class=\"clearfix\"></div>")
 
                   }
 
