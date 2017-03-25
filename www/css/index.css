@@ -75,6 +75,7 @@ margin: .8em 30% .8em;
 #home-page
 {
   background-image: url('../img/fondo.png');
+  color: #fff;
 }
 #content-login
 {
@@ -95,6 +96,10 @@ div.ui-slider-switch.ui-mini {
     background-color: transparent;
     border-radius: 0px;
     border: 1px solid #fff;
+}
+#content-login > form > .relativediv > div >input
+{
+      color: #fff;
 }
 #content-login > form > .ui-btn
 {
@@ -121,7 +126,7 @@ div.ui-slider-switch.ui-mini {
 
 #home-page a{
     margin-top: 20px;
-    width: 50%;
+    width: 100%;
     border-radius: 0px;
     background-color: #ec1c24;
     color: #fff;
