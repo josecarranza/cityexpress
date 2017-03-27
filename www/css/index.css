@@ -264,6 +264,8 @@ a.down {
     }
 
 textarea#comentario {
-width: 404px; height: 72px;
+    width: 290%;
+    margin-left: 5%;
+    height: 72px;
 
 }

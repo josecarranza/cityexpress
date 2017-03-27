@@ -123,7 +123,7 @@ var app = {
 
           if (es_mandado == "1"){
             // realiza consulta de mandado.
-            $('#divDireccionPickup').text(data[n].direccion+" Colonia"+data[n].colonia+", "+data[n].municipio+", "+data[n].departamento);
+            $('#divDireccionPickup').text(data[n].direccion+" Colonia "+data[n].colonia+", "+data[n].municipio+", "+data[n].departamento);
             $.ajax({
                 type: 'POST',
                 url: webservices + 'getMandadosOrden',
@@ -138,7 +138,8 @@ var app = {
                   $('#divListMandados').append("</div>")
 
                   for (n in data){
-                    $('#divDireccionEntrega').text(data[n].direccion_pk+" Colonia"+data[n].colonia_en+", "+data[n].municipio_en+", "+data[n].departamento_en);
+                    $('#divNombreCliente').text(data[n].pk_nombre);
+                    $('#divDireccionEntrega').text(data[n].direccion_pk+" Colonia "+data[n].colonia_en+", "+data[n].municipio_en+", "+data[n].departamento_en);
                     $('#divListMandados').append("<div class='row'  onclick='verMandado("+data[n].id_mandado+")'>");
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].pk_nombre + "</div>" );
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].en_nombre + "</div>" );
