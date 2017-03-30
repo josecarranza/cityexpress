@@ -135,7 +135,7 @@ var app = {
                   $('#divListMandados').append("<div class='col-xs-4'>Envía</div>" );
                   $('#divListMandados').append("<div class='col-xs-4'>Recibe</div>" );
                   $('#divListMandados').append("<div class='col-xs-4'>Estado</div>" );
-                   $('#divListMandados').append("<div class='col-xs-12'>Descripcion</div>" );
+                   
                   $('#divListMandados').append("</div>")
 
                   for (n in data){
@@ -145,6 +145,7 @@ var app = {
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].pk_nombre + "</div>" );
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].en_nombre + "</div>" );
                     $('#divListMandados').append("<div class='col-xs-4'>" + data[n].estado + "</div>" );
+                    $('#divListMandados').append("<div class='col-xs-12'>Descripcion</div>" );
                     $('#divListMandados').append("<div class='col-xs-12'>" + data[n].detalle + "</div>" );
                     $('#divListMandados').append("</div><div class=\"clearfix\"></div>")
 
