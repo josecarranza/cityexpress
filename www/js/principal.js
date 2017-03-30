@@ -40,11 +40,18 @@ var app = {
       data: {id: id_usuario},
       dataType: 'json',
       success: function (data) {
-        $('#listOrdenes').html(data['mensaje'].error)
-        for (n in data){
-        //  console.log(  + " - " + data[n].direccion);
-         // $('#listOrdenes').append("<div class='row'  onclick='viewOrder("+ data[n].id_orden +")'><div id='detalleItem'  class='col-xs-2'><h4>" + data[n].id_orden + "</h4></div><div id='detalleItem'  class='col-xs-10'><h4>" + data[n].direccion + "</h4></div></div>");
+        if(data['mensaje'].error == 'No hay ordenes asignadas')
+        {
+          $('#listOrdenes').html(data['mensaje'].error);
         }
+        else
+        {
+          for (n in data){
+          //  console.log(  + " - " + data[n].direccion);
+            $('#listOrdenes').append("<div class='row'  onclick='viewOrder("+ data[n].id_orden +")'><div id='detalleItem'  class='col-xs-2'><h4>" + data[n].id_orden + "</h4></div><div id='detalleItem'  class='col-xs-10'><h4>" + data[n].direccion + "</h4></div></div>");
+          }
+        }
+        
       }
 
   });
