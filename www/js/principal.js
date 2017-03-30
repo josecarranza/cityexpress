@@ -42,7 +42,7 @@ var app = {
       success: function (data) {
 
         for (n in data){
-          $('#listOrdenes').append(data[n]);
+          $('#listOrdenes').append(data[n].toString());
         //  console.log(  + " - " + data[n].direccion);
          // $('#listOrdenes').append("<div class='row'  onclick='viewOrder("+ data[n].id_orden +")'><div id='detalleItem'  class='col-xs-2'><h4>" + data[n].id_orden + "</h4></div><div id='detalleItem'  class='col-xs-10'><h4>" + data[n].direccion + "</h4></div></div>");
         }
