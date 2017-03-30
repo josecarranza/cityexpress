@@ -40,7 +40,7 @@ var app = {
       data: {id: id_usuario},
       dataType: 'json',
       success: function (data) {
-        if(data['mensaje'].error == 'No hay ordenes asignadas')
+        if(data['mensaje'].error !== 'undefined' && data['mensaje'].error == 'No hay ordenes asignadas')
         {
           $('#listOrdenes').html(data['mensaje'].error);
         }
