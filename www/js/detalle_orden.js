@@ -39,6 +39,7 @@ var app = {
 
     $('#Botonera1').hide();
     $('#Botonera2').hide();
+    $('#Botonera3').hide();
 
 
     $('#aceptarOrden').click(function(){
