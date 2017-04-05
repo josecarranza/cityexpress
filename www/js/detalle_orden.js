@@ -64,6 +64,29 @@ var app = {
         }
       });
 
+      $('#puntomedio').click(function(){
+        var confirmar = confirm("Esta seguro que confirmar llegada a local/punto de inicio de esta orden");
+
+        if (confirmar){
+
+          // se invoca la llamada ajax para cambio de estado
+          $.ajax({
+              type: 'POST',
+              url: webservices + 'setEstadoOrden',
+              data: {id: orden, estado:6},
+              dataType: 'json',
+              success: function (data) {
+
+                window.location = "detalle_orden.html";
+
+
+              }
+        });
+
+
+        }
+      });
+
       $('#finalizarOrden').click(function(){
           var confirmar = confirm("Esta seguro que finalizar esta orden");
           var comentario = $('#comentario').val();
@@ -116,6 +139,9 @@ var app = {
             $('#Botonera1').show();
           }
           if (data[n].id_estado == "3"){
+            $('#Botonera3').show();
+          }
+          if (data[n].id_estado == "6"){
             $('#Botonera2').show();
           }
 
