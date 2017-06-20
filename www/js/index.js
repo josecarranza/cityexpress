@@ -24,6 +24,15 @@
     /* se dispara en lugar de onDeviceReady */
     $(document).ready(function(){
 
+      alert("entrando");
+
+       window.FirebasePlugin.getToken(function(token) {
+              // save this server-side and use it to push notifications to this device
+              alert(token);
+          }, function(error) {
+              alert(error);
+          });
+
       var id_usuario = localStorage.getItem("id_usuario");
       if (id_usuario > 0){
         location.replace('principal.html');
@@ -48,12 +57,7 @@
 
   /* FUNCIONES */
 
-  window.FirebasePlugin.getToken(function(token) {
-    // save this server-side and use it to push notifications to this device
-    alert(token);
-}, function(error) {
-    alert(error);
-});
+ 
 
   function doLogin(usr, pwd){
 
