@@ -20,18 +20,20 @@
           console.log("device ready, start making you custom calls!");
 
       }
+
+      
   };
     /* se dispara en lugar de onDeviceReady */
     $(document).ready(function(){
 
-      alert("entrando");
 
-       window.FirebasePlugin.getToken(function(token) {
+     window.FirebasePlugin.getToken(function(token) {
               // save this server-side and use it to push notifications to this device
               alert(token);
           }, function(error) {
               alert(error);
           });
+  
 
       var id_usuario = localStorage.getItem("id_usuario");
       if (id_usuario > 0){
