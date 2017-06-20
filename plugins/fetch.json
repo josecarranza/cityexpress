@@ -166,5 +166,13 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-firebase": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-firebase@0.1.21"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
