@@ -23,8 +23,17 @@
       PushNotification.init({
           android: {
               senderID: 172772854626
-          }
+          },
+          ios: {"alert": "true", "badge": "true", "sound": "true"}, 
+          windows: {} 
       });
+
+      push.on('registration', function(data) {
+        alert("registration event");
+        alert(data.registrationId);
+    });
+
+
 
       }
 
