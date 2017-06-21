@@ -31,7 +31,7 @@
 
             window.FirebasePlugin.onTokenRefresh(function(token) {
               // save this server-side and use it to push notifications to this device
-               alert("Este es el token: " + token);
+               alert("actualiza el token: " + token);
           }, function(error) {
               console.error(error);
           });
