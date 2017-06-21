@@ -19,51 +19,19 @@
       onDeviceReady: function() {
          // console.log("device ready, start making you custom calls!");
 
-          setTimeout(getTheToken, 1000);
 
-
-
-           window.FirebasePlugin.getToken(function(token) {
-              // save this server-side and use it to push notifications to this device
-              alert("Este es el token: " + token);
-
-            }, function(error) {
-                alert(error);
-            });
-  
-            getTheToken();
-
-            window.FirebasePlugin.onTokenRefresh(function(token) {
-              // save this server-side and use it to push notifications to this device
-               alert("actualiza el token: " + token);
-          }, function(error) {
-              console.error(error);
-          });
-
-
+      PushNotification.init({
+          android: {
+              senderID: 172772854626
+          }
+      });
 
       }
 
       
   };
 
-  
-function getTheToken() {
-     window.FirebasePlugin.getToken.getToken(
-        function (token) {
-            if (token == null) {
-                console.log("null token");
-                setTimeout(getTheToken, 1000);
-            } else {
-                alert(token);
-                console.log("I got the token: " + token);
-            }
-        },
-        function (err) {
-            console.log('error retrieving token: ' + err);
-        }
-    );
-}
+ 
 
 
     /* se dispara en lugar de onDeviceReady */
