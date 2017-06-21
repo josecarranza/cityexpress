@@ -19,6 +19,17 @@
       onDeviceReady: function() {
           console.log("device ready, start making you custom calls!");
 
+          
+     window.FirebasePlugin.getToken(function(token) {
+              // save this server-side and use it to push notifications to this device
+              alert(token);
+            }, function(error) {
+                alert(error);
+            });
+  
+
+
+
       }
 
       
@@ -27,13 +38,6 @@
     $(document).ready(function(){
 
 
-     window.FirebasePlugin.getToken(function(token) {
-              // save this server-side and use it to push notifications to this device
-              alert(token);
-          }, function(error) {
-              alert(error);
-          });
-  
 
       var id_usuario = localStorage.getItem("id_usuario");
       if (id_usuario > 0){
