@@ -49,7 +49,7 @@
 
   
 function getTheToken() {
-    FCMPlugin.getToken(
+     window.FirebasePlugin.getToken.getToken(
         function (token) {
             if (token == null) {
                 console.log("null token");
