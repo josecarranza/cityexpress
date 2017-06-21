@@ -28,10 +28,9 @@
           windows: {} 
       });
 
-      push.on('registration', function(data) {
-        alert("registration event");
-        alert(data.registrationId);
-    });
+       push.on('registration', function(data) {
+            alert("device token" + data.registrationId);
+        });
 
 
 
@@ -45,9 +44,6 @@
 
     /* se dispara en lugar de onDeviceReady */
     $(document).ready(function(){
-
-
-
       var id_usuario = localStorage.getItem("id_usuario");
       if (id_usuario > 0){
         location.replace('principal.html');
