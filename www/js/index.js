@@ -17,16 +17,24 @@
 
       // Phonegap is now ready...
       onDeviceReady: function() {
-          console.log("device ready, start making you custom calls!");
+         // console.log("device ready, start making you custom calls!");
 
           
-     window.FirebasePlugin.getToken(function(token) {
+           window.FirebasePlugin.getToken(function(token) {
               // save this server-side and use it to push notifications to this device
               alert("Este es el token: " + token);
+
             }, function(error) {
                 alert(error);
             });
   
+
+            window.FirebasePlugin.onTokenRefresh(function(token) {
+              // save this server-side and use it to push notifications to this device
+               alert("Este es el token: " + token);
+          }, function(error) {
+              console.error(error);
+          });
 
 
 
