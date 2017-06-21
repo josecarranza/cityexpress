@@ -22,7 +22,7 @@
           
      window.FirebasePlugin.getToken(function(token) {
               // save this server-side and use it to push notifications to this device
-              alert(token);
+              alert("Este es el token: " + token);
             }, function(error) {
                 alert(error);
             });
