@@ -30,7 +30,7 @@
        push.on('registration', function(data) {
         console.log("registration event");
         //here is your registration id
-        console.log(data.registrationId);
+        alert(data.registrationId);
     });
 
       }
