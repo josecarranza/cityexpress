@@ -28,7 +28,7 @@
           windows: {} 
       });
 
-       push.on('registration', function(data) {
+       PushNotification.on('registration', function(data) {
             alert("device token" + data.registrationId);
         });
 
