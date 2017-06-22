@@ -30,7 +30,9 @@
        push.on('registration', function(data) {
         console.log("registration event");
         //here is your registration id
-        alert(data.registrationId);
+
+        localStorage.setItem("registrationId", data.registrationId);
+
     });
 
       }
@@ -47,6 +49,8 @@
 
 
       var id_usuario = localStorage.getItem("id_usuario");
+     
+      
       if (id_usuario > 0){
         location.replace('principal.html');
         return true;
@@ -76,6 +80,7 @@
 
 // se valida si el usuario ya esta logeado
 var id_usuario = localStorage.getItem("id_usuario");
+var regid = localStorage.getItem("registrationId");
 
 
   if (id_usuario > 0){
@@ -86,7 +91,7 @@ var id_usuario = localStorage.getItem("id_usuario");
     $.ajax({
         type: 'POST',
         url: webservices + 'validate_user',
-        data: { action: 'getUser',username: usr, password:pwd},
+        data: { action: 'getUser',username: usr, password:pwd,registrationId:regid},
         dataType: 'json',
         success: function (data) {
            if (data.id_usuario > 0){
