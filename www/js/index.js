@@ -20,19 +20,18 @@
          // console.log("device ready, start making you custom calls!");
 
 
-      PushNotification.init({
+      var push = PushNotification.init({
           android: {
               senderID: 172772854626
           },
-          ios: {"alert": "true", "badge": "true", "sound": "true"}, 
-          windows: {} 
+          
       });
 
-       PushNotification.on('registration', function(data) {
-            alert("device token" + data.registrationId);
-        });
-
-
+       push.on('registration', function(data) {
+        console.log("registration event");
+        //here is your registration id
+        console.log(data.registrationId);
+    });
 
       }
 
@@ -44,6 +43,9 @@
 
     /* se dispara en lugar de onDeviceReady */
     $(document).ready(function(){
+
+
+
       var id_usuario = localStorage.getItem("id_usuario");
       if (id_usuario > 0){
         location.replace('principal.html');
