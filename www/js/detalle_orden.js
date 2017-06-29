@@ -135,6 +135,8 @@ var app = {
 
           es_mandado = data[n].es_mandado;
 
+          alert(data[n].fecha_llega_pto1);
+
           /* se muestra botonera correspondiente */
           if (data[n].id_estado == "2"){
             $('#Botonera1').show();
