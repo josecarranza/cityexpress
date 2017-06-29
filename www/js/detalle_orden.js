@@ -1,3 +1,4 @@
+ var valor_fecha_setear = null; 
 var app = {
     SOME_CONSTANTS : false,  // some constant
     // Application Constructor
@@ -40,6 +41,7 @@ var app = {
     $('#Botonera1').hide();
     $('#Botonera2').hide();
     $('#Botonera3').hide();
+    $("#ordenBoton").hide();
 
 
     $('#aceptarOrden').click(function(){
@@ -111,6 +113,33 @@ var app = {
 
           }
         });
+      
+         $('#ordenBoton').click(function(){
+          var confirmar = confirm("Esta seguro realizar esta marca");
+         
+        //  alert(comentario);
+          if (confirmar){
+             //alert("Valor a setear: " + valor_fecha_setear);
+            // se invoca la llamada ajax para cambio de estado
+         
+            $.ajax({
+                type: 'POST',
+                url: webservices + 'setFechaEstadoOrden',
+                data: {id: orden, campo:valor_fecha_setear},
+                dataType: 'json',
+                success: function (data) {
+
+                  window.location = "detalle_orden.html";
+
+
+                }
+          });
+
+
+          }
+
+          });
+        
 
 
 
@@ -135,16 +164,64 @@ var app = {
 
           es_mandado = data[n].es_mandado;
 
-          alert(data[n].fecha_llega_pto1);
+
+
+         
+
+          breakme: if(data[n].fecha_sale_pto4 == null){
+            if(data[n].fecha_llega_pto4 == null){
+              if(data[n].fecha_sale_pto3 == null){
+                if(data[n].fecha_llega_pto3 == null){
+                  if(data[n].fecha_sale_pto2 == null){
+                    if(data[n].fecha_llega_pto2 == null){
+                      if(data[n].fecha_sale_pto1 == null){
+                        if(data[n].fecha_llega_pto1 == null){
+                            $("#ordenBoton").html("Ha llegado a punto 1");
+                             $("#ordenBoton").copyCSS('#aceptarOrden');
+                            valor_fecha_setear = "fecha_llega_pto1";
+                           break breakme;
+                        }
+                           $("#ordenBoton").html("Salir de Punto 1");
+                            valor_fecha_setear = "fecha_sale_pto1";
+                            break breakme;
+                      }
+                           $("#ordenBoton").html("Ha llegado a punto 2");
+                            valor_fecha_setear = "fecha_llega_pto2";
+                           break breakme;
+                    }      
+                           $("#ordenBoton").html("Salir de Punto 2");
+                            valor_fecha_setear = "fecha_sale_pto2";
+                          break breakme;      
+                }
+                   $("#ordenBoton").html("Ha llegado a punto 3");
+                   valor_fecha_setear = "fecha_llega_pto3";
+                  break breakme;  
+                } 
+                   $("#ordenBoton").html("Salir de Punto 3");
+                   valor_fecha_setear = "fecha_sale_pto3";
+                  break breakme; 
+              }
+                 $("#ordenBoton").html("Ha llegado a punto 4");
+                   valor_fecha_setear = "fecha_llega_pto4";
+                break breakme;
+            }
+               $("#ordenBoton").html("Salir de Punto 4");
+              valor_fecha_setear = "fecha_sale_pto4";
+              break breakme;
+          }else{
+              $("#ordenBoton").hide();
+          }
 
           /* se muestra botonera correspondiente */
           if (data[n].id_estado == "2"){
             $('#Botonera1').show();
           }
           if (data[n].id_estado == "3"){
+             $("#ordenBoton").show();
             $('#Botonera3').show();
           }
           if (data[n].id_estado == "6"){
+            $("#ordenBoton").show();
             $('#Botonera2').show();
           }
 
