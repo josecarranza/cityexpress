@@ -176,36 +176,36 @@ var app = {
                     if(data[n].fecha_llega_pto2 == null){
                       if(data[n].fecha_sale_pto1 == null){
                         if(data[n].fecha_llega_pto1 == null){
-                            $("#ordenBoton").html("Ha llegado a punto 1");
+                            $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Ha llegado a punto 1</span></span>');
                           
                             valor_fecha_setear = "fecha_llega_pto1";
                            break breakme;
                         }
-                           $("#ordenBoton").html("Salir de Punto 1");
+                           $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Salir de Punto 1</span></span>');
                             valor_fecha_setear = "fecha_sale_pto1";
                             break breakme;
                       }
-                           $("#ordenBoton").html("Ha llegado a punto 2");
+                           $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Ha llegado a punto 2</span></span>');
                             valor_fecha_setear = "fecha_llega_pto2";
                            break breakme;
                     }      
-                           $("#ordenBoton").html("Salir de Punto 2");
+                           $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Salir de Punto 2</span></span>');
                             valor_fecha_setear = "fecha_sale_pto2";
                           break breakme;      
                 }
-                   $("#ordenBoton").html("Ha llegado a punto 3");
+                   $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Ha llegado a punto 3</span></span>');
                    valor_fecha_setear = "fecha_llega_pto3";
                   break breakme;  
                 } 
-                   $("#ordenBoton").html("Salir de Punto 3");
+                   $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Salir de Punto 3</span></span>');
                    valor_fecha_setear = "fecha_sale_pto3";
                   break breakme; 
               }
-                 $("#ordenBoton").html("Ha llegado a punto 4");
+                 $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Ha llegado a punto 4</span></span>');
                    valor_fecha_setear = "fecha_llega_pto4";
                 break breakme;
             }
-               $("#ordenBoton").html("Salir de Punto 4");
+               $("#ordenBoton").html('<span class="ui-btn-inner"><span class="ui-btn-text">Salir de Punto 4</span></span>');
               valor_fecha_setear = "fecha_sale_pto4";
               break breakme;
           }else{
