@@ -177,7 +177,7 @@ var app = {
                       if(data[n].fecha_sale_pto1 == null){
                         if(data[n].fecha_llega_pto1 == null){
                             $("#ordenBoton").html("Ha llegado a punto 1");
-                             $("#ordenBoton").copyCSS('#aceptarOrden');
+                          
                             valor_fecha_setear = "fecha_llega_pto1";
                            break breakme;
                         }
