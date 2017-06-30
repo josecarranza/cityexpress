@@ -158,7 +158,7 @@ var app = {
           $('#divNombreCliente').text(data[n].nombre_entrega);
           $('#divDireccionPickup').text("No definido");
           $('#divDireccionEntrega').text(data[n].direccion+" Colonia"+data[n].colonia+", "+data[n].municipio+", "+data[n].departamento);
-          $('#divMontoaRecibir').text(data[n].total);
+          $('#divMontoaRecibir').text("$"+data[n].total);
           $('#divEstado').text(data[n].estado);
 
 
@@ -276,19 +276,21 @@ var app = {
                 data: {id: orden},
                 dataType: 'json',
                 success: function (data) {
-
-                  $('#divListMandados').append("<div class='row'>");
-                  $('#divListMandados').append("<div class='col-xs-4'>Tienda</div>" );
-                  $('#divListMandados').append("<div class='col-xs-4'>Producto</div>" );
-                  $('#divListMandados').append("<div class='col-xs-4'>Cantidad</div>" );
-                  $('#divListMandados').append("</div>")
+                  html="<div class='row margin-bottom'>";
+                  html+="<div class='col-xs-4'><b>TIENDA</b></div>";
+                  html+="<div class='col-xs-6'><b>PRODUCTO</b></div>";
+                  html+="<div class='col-xs-2'><b>CANT.</b></div>";
+                  html+="</div>";
+                  $('#divListMandados').append(html)
 
                   for (n in data){
-                    $('#divListMandados').append("<div class='row'>");
-                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].tienda + "</div>" );
-                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].nombre + "</div>" );
-                    $('#divListMandados').append("<div class='col-xs-4'>" + data[n].cantidad + "</div>" );
-                    $('#divListMandados').append("</div><div class=\"clearfix\"></div>")
+                    html2="<div class='row margin-bottom'>";
+                    html2+="<div class='col-xs-4'>" + data[n].tienda + "</div>";
+                    html2+="<div class='col-xs-6'>" + data[n].nombre + "</div>";
+                    html2+="<div class='col-xs-2 text-center'>" + data[n].cantidad + "</div>";
+                    html2+="</div><div class=\"clearfix\"></div>";
+                    $('#divListMandados').append(html2);
+
 
                   }
 
@@ -362,3 +364,14 @@ var app = {
           var dataURL = canvas.toDataURL("image/png");
           return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
       }
+
+$(document).ready(function() {
+  $("#app").on("swipeleft",function(){
+    history.back();
+});
+  $("#app").on("swiperight",function(){
+    location.reload();
+});
+});
+
+

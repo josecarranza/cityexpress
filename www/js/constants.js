@@ -7,7 +7,8 @@ function doLogout(){
   localStorage.removeItem("nombre_usuario");
   localStorage.removeItem("id_usuarioEncr");
 
-  location.replace("index.html");
+  //location.replace("index.html");
+  location.href="index.html";
 
 }
 

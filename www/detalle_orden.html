@@ -10,26 +10,28 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 
         <title>CityExpress - APP</title>
+
     </head>
     <body>
         <div id="app">
             <div id="home-page" data-role="page">
                 <div data-role="content" >
                     <div id="logoContainer" class="centerText">
-                            <img src="img/logo.png" id="logo"  />
+                            <img src="img/logo.png" id="logo" style="margin:0px"  />
                         </div>
 
                         <div id="divNombre"></div>
                         <hr>
-                        <div class='row'><div class='col-xs-6'>Nombre</div><div id="divNombreCliente" class='col-xs-6'></div></div>
-                        <div class='row'><div class='col-xs-6'>Dirección PickUp</div><div class='col-xs-6' id="divDireccionPickup"></div></div>
-                        <div class='row'><div class='col-xs-6'>Dirección Entrega</div><div class='col-xs-6' id="divDireccionEntrega"></div></div>
-                        <div class='row'><div class='col-xs-6'>Monto a Recibir</div><div class='col-xs-6' id="divMontoaRecibir"></div></div>
-                        <div class='row'><div class='col-xs-6'>Estado</div><div class='col-xs-6' id="divEstado"></div></div>
-
+                        <div class="datos-cliente-orden">
+                        <div class='row'><div class='col-xs-4'><b>Nombre:</b></div><div id="divNombreCliente" class='col-xs-8'></div></div>
+                        <div class='row'><div class='col-xs-4'><b>Dirección PickUp:</b></div><div class='col-xs-8' id="divDireccionPickup"></div></div>
+                        <div class='row'><div class='col-xs-4'><b>Dirección Entrega:</b></div><div class='col-xs-8' id="divDireccionEntrega"></div></div>
+                        <div class='row'><div class='col-xs-4'><b>Monto a Recibir:</b></div><div class='col-xs-8' id="divMontoaRecibir"></div></div>
+                        <div class='row'><div class='col-xs-4'><b>Estado:</b></div><div class='col-xs-8' id="divEstado"></div></div>
+                        </div>
 
                         <hr>
-                        <div class='row'<div >Detalle de productos</div></div>
+                        <div class='row'><div class="col-xs-12" ><b>DETALLE DE PRODUCTOS</b></div></div>
                         <hr>
                           <div id="divListMandados"></div>
                         <hr>
