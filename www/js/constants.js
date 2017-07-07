@@ -1,5 +1,5 @@
 directoryRoot = "";
-webservices = "http://demo.web-informatica.info/cityexpress2/api/";
+webservices = "http://demo.web-informatica.info/cityexpress/api/";
 
 
 function doLogout(){
