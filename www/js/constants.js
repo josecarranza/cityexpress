@@ -8,7 +8,10 @@ function doLogout(){
   localStorage.removeItem("id_usuarioEncr");
 
   //location.replace("index.html");
-  location.href="index.html";
+  $.post(webservices+"logout_app"{id_usuario:localStorage.getItem("id_usuario")},function(){
+  	location.href="index.html";
+  });
+  
 
 }
 

@@ -367,10 +367,10 @@ var app = {
 
 $(document).ready(function() {
   $("#app").on("swipeleft",function(){
-    history.back();
+   // history.back();
 });
   $("#app").on("swiperight",function(){
-    location.reload();
+    //location.reload();
 });
 });
 
