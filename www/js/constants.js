@@ -3,12 +3,13 @@ webservices = "http://demo.web-informatica.info/cityexpress2/api/";
 
 
 function doLogout(){
-  localStorage.removeItem("id_usuario");
-  localStorage.removeItem("nombre_usuario");
-  localStorage.removeItem("id_usuarioEncr");
+  
 
   //location.replace("index.html");
   $.post(webservices+"logout_app",{id_usuario:localStorage.getItem("id_usuario")},function(){
+  	localStorage.removeItem("id_usuario");
+  localStorage.removeItem("nombre_usuario");
+  localStorage.removeItem("id_usuarioEncr");
   	location.href="index.html";
   });
   
