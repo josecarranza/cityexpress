@@ -118,7 +118,7 @@ div.ui-slider-switch.ui-mini {
 #logo{
     width:70%;
     max-width:206px;
-    margin:35px 0 40px;
+    margin:10px ;
 }
 .centerText{
     text-align:center;
@@ -274,4 +274,80 @@ textarea#comentario {
 }
 .margin-bottom{
   margin-bottom: 10px;
+}
+#divNombre{
+  font-size: 25px;
+  font-weight: bolder;
+  font-style: italic;
+  text-align: center;
+}
+.ordenes-pendientes{
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px;
+  background: #fff;
+  color: #224099;
+  margin: 10px 0px;
+}
+.item-orden{
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid #fefefe;
+}
+#listOrdenes{
+  overflow: hidden;
+}
+#id_orden{
+  color: #fff;
+  font-size: 13px;
+  font-weight: bolder;
+  line-height: 10px;
+ 
+}
+#id_orden b{
+  font-size: 20px;
+}
+#detalleItem{
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.item-orden:hover{
+  background: #fff;
+  color: #224099;
+}
+.item-orden:hover #detalleItem,
+.item-orden:active #detalleItem,
+.item-orden:hover #id_orden,
+.item-orden:active #id_orden{
+  color: #224099;
+}
+
+
+.title-bar{
+  color: #102e88;
+  font-size: 18px;
+  font-weight: bolder;
+  background: #fff;
+  padding: 6px;
+  border-radius: 10px;
+  font-style: italic;
+  text-align: center;
+  margin: 20px 0px;
+}
+.ico-detalle-envio{
+  padding: 10px 24px;
+  display: inline-block;
+  background: url('../img/ico-detalle-envio.png') no-repeat;
+  background-position: center;
+      vertical-align: middle;
+}
+.ico-detalle-orden{
+  padding: 14px 24px;
+  display: inline-block;
+  background: url('../img/ico-detalle-orden.png') no-repeat;
+  background-position: center;
+      vertical-align: middle;
 }

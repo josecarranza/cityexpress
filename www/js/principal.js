@@ -47,7 +47,7 @@ var app = {
         {
           for (n in data){
           //  console.log(  + " - " + data[n].direccion);
-          $('#listOrdenes').append("<div class='row'  onclick='viewOrder("+ data[n].id_orden +")'><div id='detalleItem'  class='col-xs-2'><h4>" + data[n].id_orden + "</h4></div><div id='detalleItem'  class='col-xs-10'><h4>" + data[n].direccion + "</h4></div></div>");
+          $('#listOrdenes').append("<div class='row item-orden'  onclick='viewOrder("+ data[n].id_orden +")'><div id='id_orden'  class='col-xs-12'>ORDEN <b>" + data[n].id_orden + "</b></div><div id='detalleItem'  class='col-xs-12'>" + data[n].direccion + "</div></div>");
         }
       }
       
