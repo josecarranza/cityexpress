@@ -31,6 +31,7 @@ var app = {
   $(document).ready(function(){
 
     var id_usuario = localStorage.getItem("id_usuario");
+   // $("#divNombre").text(localStorage.getItem("nombre_usuario"));
 
     /* se obtienen las ordenes del usuario */
 

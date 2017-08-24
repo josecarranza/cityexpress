@@ -269,9 +269,7 @@ textarea#comentario {
     height: 72px;
 
 }
-.datos-cliente-orden .row{
-  margin-bottom: 10px;
-}
+
 .margin-bottom{
   margin-bottom: 10px;
 }
@@ -350,4 +348,22 @@ textarea#comentario {
   background: url('../img/ico-detalle-orden.png') no-repeat;
   background-position: center;
       vertical-align: middle;
+}
+.datos-cliente-orden {
+  overflow: hidden;
+}
+.datos-cliente-orden .row{
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0px;
+}
+.border-bottom{
+  border-bottom: 1px solid #eee;
+}
+#divListMandados{
+  overflow: hidden; 
+}
+#divMontoaRecibir{
+  font-size: 20px;
 }

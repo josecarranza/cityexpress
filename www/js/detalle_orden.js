@@ -276,7 +276,7 @@ var app = {
                 data: {id: orden},
                 dataType: 'json',
                 success: function (data) {
-                  html="<div class='row margin-bottom'>";
+                  html="<div class='row margin-bottom border-bottom'>";
                   html+="<div class='col-xs-4'><b>TIENDA</b></div>";
                   html+="<div class='col-xs-6'><b>PRODUCTO</b></div>";
                   html+="<div class='col-xs-2'><b>CANT.</b></div>";
