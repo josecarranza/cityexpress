@@ -12,6 +12,12 @@
     <title>CityExpress - APP</title>
 
 </head>
+<style>
+#menu .btn{
+    padding: 10px;
+    border-radius: 5px;
+}
+</style>
 <body>
     <div id="app">
         <div id="home-page" data-role="page">
@@ -22,9 +28,9 @@
 
 
                 <div class="title-bar">
-                 <span class="ico-detalle-envio"></span> Detalle de envío
-             </div>
-             <div class="datos-cliente-orden">
+                   <span class="ico-detalle-envio"></span> Detalle de envío
+               </div>
+               <div class="datos-cliente-orden">
                 <div class='row'><div class='col-xs-4'><b>Nombre:</b></div><div id="divNombreCliente" class='col-xs-8'></div></div>
                 <div class='row'><div class='col-xs-4'><b>Dirección PickUp:</b></div><div class='col-xs-8' id="divDireccionPickup"></div></div>
                 <div class='row'><div class='col-xs-4'><b>Dirección Entrega:</b></div><div class='col-xs-8' id="divDireccionEntrega"></div></div>
@@ -33,35 +39,31 @@
             </div>
 
             <div class="title-bar">
-             <span class="ico-detalle-orden"></span> Detalle de productos
-         </div>
-         <div id="divListMandados"></div>
-         <hr>
+               <span class="ico-detalle-orden"></span> Detalle de productos
+           </div>
+           <div id="divListMandados"></div>
+           <hr>
 
-         <div class="clearfix"></div>
-         <div id="menu">
+           <div class="clearfix"></div>
+           <div id="menu">
+            <a href="javascript:aceptar_orden()" class="btn btn-primary btn-aceptar">Aceptar Orden</a>
 
-            <fieldset id="EstadosBoton" class="ui-grid-a1">
-                <div class="ui-block-b"><a data-role="button" id="ordenBoton">Etiqueta</a></div>
-            </fieldset>
+            <a href="javascript:punto_control()" class="btn btn-primary btn-control">Punto Control</a>
 
-            <fieldset id="Botonera1" class="ui-grid-a1">
-                <div class="ui-block-b"><a data-role="button" id="aceptarOrden">Aceptar Orden</a><a data-role="button" id="logoutButton">Cerrar sesión</a></div>
-            </fieldset>
-            <fieldset id="Botonera3" class="ui-grid-a">
-                <div class="ui-block-b"><a data-role="button" id="puntomedio">Confirmar llegada a local/punto de inicio</a><a data-role="button" id="logoutButton">Cerrar sesión</a></div>
-            </fieldset>
-            <fieldset id="Botonera2" class="ui-grid-b">
-                <div class="ui-block-b"><textarea id="comentario"></textarea>
-                  <a data-role="button" id="finalizarOrden">Finalizar</a>
-                  <!-- <a data-role="button" id="logoutButton">Cerrar sesión</a> -->
-                  </div>
-             </fieldset>
+             <a href="javascript:llegada_destino()" class="btn btn-primary btn-control">Confirmar Llegada a Destino</a>
+
+    
+            <hr />
+            <div class="area-finalizar">
+                <textarea id="comentario_driver"></textarea>
+                <a class="btn btn-primary" href="javascript:finalizar_orden()">Finalizar</a>
+            </div>
 
 
-          </div>
-      </div>
-  </div>
+
+        </div>
+    </div>
+</div>
 </div>
 
 
