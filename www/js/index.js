@@ -77,7 +77,7 @@
         }).ajaxStop(function () {
           $loading.hide();
         });
-        
+
       }
     //});
 
@@ -92,12 +92,12 @@ var id_usuario = localStorage.getItem("id_usuario");
 var regid = localStorage.getItem("registrationId");
 
 
-if (id_usuario > 0){
+/*if (id_usuario > 0){
   //location.replace('principal.html');
   location.href="principal.html";
   return true;
 }
-else{
+else{*/
   $.ajax({
     type: 'POST',
     url: webservices + 'validate_user',
@@ -119,7 +119,7 @@ else{
 
       });
 
-}
+
 
 
 }
