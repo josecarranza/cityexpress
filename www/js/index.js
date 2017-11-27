@@ -32,6 +32,7 @@
         //here is your registration id
 
         localStorage.setItem("registrationId", data.registrationId);
+        validar_sesion_ready();
 
       });
 
@@ -44,39 +45,47 @@
 
 
      /* se dispara en lugar de onDeviceReady */
-     $(document).ready(function(){
+     //$(document).ready(function(){
+      function validar_sesion_ready(){
+
+
+        var id_usuario = localStorage.getItem("id_usuario");
+        var regid = localStorage.getItem("registrationId");
+
+        if (id_usuario > 0){
+          $.post(webservices+"check_session",{'id_user':id_usuario,'regid':regid},function(data){
+            if(data.error==0){
+             location.replace('principal.html');
+             return true;
+           }
+
+         },'json');
 
 
 
-      var id_usuario = localStorage.getItem("id_usuario");
 
-      
-      if (id_usuario > 0){
-        location.replace('principal.html');
-        return true;
+        }
+
+        /* se presiona el botón de login*/
+        $('#login').click(function(){
+          doLogin($('#username').val(), $('#password').val());
+        });
+
+        var $loading = $('#loadingDiv').hide();
+        $(document).ajaxStart(function () {
+          $loading.show();
+        }).ajaxStop(function () {
+          $loading.hide();
+        });
+        
       }
+    //});
 
-      /* se presiona el botón de login*/
-      $('#login').click(function(){
-        doLogin($('#username').val(), $('#password').val());
-      });
+    /* FUNCIONES */
 
 
 
-      var $loading = $('#loadingDiv').hide();
-      $(document).ajaxStart(function () {
-        $loading.show();
-      }).ajaxStop(function () {
-        $loading.hide();
-      });
-
-    });
-
-     /* FUNCIONES */
-
-
-
-     function doLogin(usr, pwd){
+    function doLogin(usr, pwd){
 
 // se valida si el usuario ya esta logeado
 var id_usuario = localStorage.getItem("id_usuario");
