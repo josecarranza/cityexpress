@@ -1,5 +1,5 @@
 directoryRoot = "";
-webservices = "http://ec2-54-175-149-112.compute-1.amazonaws.com/api/";
+webservices = "https://www.cityexpress.com.sv/api/";
 
 
 function doLogout(){
